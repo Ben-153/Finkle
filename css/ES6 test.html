@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript ES6 </title>
+</head>
+<body>
+
+	<h2>Redeclearing a variable using let</h2>
+
+	<p id="demo"></p>
+
+	<script>
+		let x = 10;
+		{
+			let x = 2
+		}
+
+		document.getElementById("demo").innerHTML = x;
+	</script>
+
+	<h2>Declearing a variable using const</h2>
+
+	<p id="demo2"></p>
+
+	<script>
+		var y = 20;
+
+		{
+			const y = 3;
+		}
+
+		document.getElementById("demo2").innerHTML = y;
+	</script>
+
+	<h2>JavaScript Arrow Functions</h2>
+	<p>with arrow funtions, you don't have to type the function keyword, the return keyword, and the curly brackets</p>
+	<p id="demo3"></p>
+
+	<script>
+		const a = (a,b) => a * b;
+		document.getElementById("demo3").innerHTML = a(6,12); 
+	</script>
+
+	<h1>JavaScript operators</h1>
+	<h2>The ... operator</h2>
+	<p>The "spread" operator spreads elements of iterable objects</p>
+	<p id="demo4"></p>
+
+	<script>
+		const q1 = ["Jan", "Feb", "Mar"];
+		const q2 = ["Apr", "May", "Jun"];
+		const q3 = ["Jul", "Aug", "Sep"];
+		const q4 = ["Oct", "Nov", "Dec"];
+
+		const year = [...q1, ...q2, ...q3, ...q4];
+		document.getElementById("demo4").innerHTML = year;
+	</script>
+
+	<p id="demo4-2"></p>
+	<script>
+		const numbers = [23, 39, 46, 92, 10];
+		let maxValue = Math.max(...numbers);
+
+		document.getElementById("demo4-2").innerHTML = maxValue;
+	</script>
+
+	<h2>Javascript For/Of Loop</h2>
+	<p>The for of statement loops through the values of any iterable object.</p>
+	<p id="demo5"></p>
+
+	<script>
+		const cars = ["BMW", "Volvo", "Mini"];
+
+		let text = "";
+		for (let c of cars) {
+			text += c + "<br>";
+		}
+
+		document.getElementById("demo5").innerHTML =text;
+	</script>
+
+	<p id="demo5-2"></p>
+
+	<script>
+		let language = "Javascript";
+
+		let letter = "";
+		for (let l of language) {
+			letter += l + "<br>";
+		}
+
+		document.getElementById("demo5-2").innerHTML = letter;	
+	</script>
+
+	<h2>JavaScript Maps</h2>
+	<p>Creating a map from an array</p>
+	<p id="demo6"></p>
+	<p id="demo6-2"></p>
+
+	<script>
+		//Create a map
+		const fruits = new Map ([
+			["apples", 500],
+			["bananas", 300],
+			["oranges", 200],
+			]);
+
+		document.getElementById("demo6").innerHTML = fruits.get("apples");
+		document.getElementById("demo6-2").innerHTML = fruits.get("oranges");
+	</script>
+
+	<h2>JavaScript Sets</h2>
+	<p>Add values to a set :</p>
+	<p id="demo7"></p>
+
+	<script>
+		//create a set
+		const letters = new Set();
+
+		//add values to the set
+		letters.add("a");
+		letters.add("b");
+		letters.add("c");
+		letters.add("d");
+
+		//display set size
+		document.getElementById("demo7").innerHTML = letters.size;
+	</script>
+
+	<h2>JavaScript Classes</h2>
+	<p>Creating two car objects from a car class:</p>
+	<p id="demo8"></p>
+
+	<script>
+		class Car {
+			constructor(name, year){
+				this.name  = name;
+				this.year = year;
+			}
+		}
+
+		const myCar1 = new Car("Ford", 2004);
+		const myCar2 = new Car("Audi", 2009);
+
+		document.getElementById("demo8").innerHTML = myCar1.name + " " + myCar2.name;
+	</script>
+
+	<h2>JavaScript Promises</h2>
+	<p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+	<p id="demo9"></p>
+
+	<script>
+		const myPromise = new
+		Promise(function(myResolve, MyRegret) {
+
+			setTimeout{function(){ myResolve("I love you!!"); }, 3000};
+		});
+
+		myPromise.then(function(value) {
+
+			document.getElementById("demo9").innerHTML = value;
+		});
+	</script>
+
+	<h2>Using JavaScript Symbols</h2>
+	<p id="demo10"></p>
+
+	<script>
+		const person = {
+			firstName = "John",
+			lastName = "Prime",
+			age = 36,
+			eyeColor = "blue"
+		};
+		let id = Symbol('id');
+		person[id] = 140353;
+
+		document.getElementById("demo10").innerHTML = person[id] + " " + person.id;
+	</script>
+	<h2>JavaScript Functions</h2>
+	<h2>Default Parameter Values</h2>
+	<p>If y is not passed or undefined, then y = 10</p>
+
+	<p id="demo11"></p>
+
+	<script>
+		function myFunction(x, y = 10) {
+			return x +  y;
+		}
+		document.getElementById("demo11").innerHTML = myFunction(5)
+	</script>
+
+
+	<h2>Function Rest Parameter</h2>
+	<p>the rest parameter (...) allows a function to treat an indefinite numbeer of arguments ar an array:</p>
+
+	<p id="demo11-2"></p>
+
+	<script>
+		function sum(...args) {
+			let sum = 0;
+			for (let arg of args) sum += args;
+			return sum;
+		}
+
+		let x = sum(4, 9, 10, 12, 16, 40, 29, 100);
+
+		document.getElementById("demo11-2").innerHTML = x;
+	</script>
+
+	<h2>Javascript Strings</h2>
+	<h2>The Icludes() Method</h2>
+
+	<p>Check if a string includes "world"</p>
+	<p id="demo12"></p>
+	<p id="demo12-2"></p>
+
+	<script>
+		let text = "Hello world, welcome to the universe.";
+		document.getElementById("demo12").innerHTML = text.includes("world");
+	</script>
+
+</body>
+</html>
